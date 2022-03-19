@@ -19,6 +19,7 @@ public class WebhookControler {
         System.out.println(update.getMessage().getText());
         System.out.println(update.getMessage().getFrom().getFirstName());
         System.out.println(update.getMessage().getChatId());
+
         Writetofile("MumboJumboJuice","I am the biggest jumbo juice in the solor system 0_0");
     }
     public void Writetofile(String filename,String imputdata){
