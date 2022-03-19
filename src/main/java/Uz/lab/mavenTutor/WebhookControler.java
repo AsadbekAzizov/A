@@ -5,6 +5,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.lang.reflect.Method;
+
+
 @RestController
 public class WebhookControler {
     @PostMapping
@@ -13,5 +19,17 @@ public class WebhookControler {
         System.out.println(update.getMessage().getText());
         System.out.println(update.getMessage().getFrom().getFirstName());
         System.out.println(update.getMessage().getChatId());
+        Writetofile("MumboJumboJuice","I am the biggest jumbo juice in the solor system 0_0");
     }
+    public void Writetofile(String filename,String imputdata){
+        try {
+            FileWriter fileWriter=new FileWriter(filename,true);
+//            fileWriter.write(imputdata);
+            fileWriter.append(imputdata);
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
