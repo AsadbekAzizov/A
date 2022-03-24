@@ -1,4 +1,4 @@
-package Uz.lab.mavenTutor;
+package Uz.lab.mavenTutor.exercise;
 
 import java.io.FileWriter;
 import java.io.IOException;

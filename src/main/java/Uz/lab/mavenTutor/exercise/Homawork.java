@@ -1,4 +1,4 @@
-package Uz.lab.mavenTutor;
+package Uz.lab.mavenTutor.exercise;
 
 import java.time.DayOfWeek;
 import java.util.HashMap;
