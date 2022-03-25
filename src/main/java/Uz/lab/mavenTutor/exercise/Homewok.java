@@ -1,4 +1,4 @@
-package Uz.lab.mavenTutor;
+package Uz.lab.mavenTutor.exercise;
 
 import java.util.ArrayList;
 public class Homewok {

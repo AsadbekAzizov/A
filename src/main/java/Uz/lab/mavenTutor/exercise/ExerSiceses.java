@@ -1,4 +1,4 @@
-package Uz.lab.mavenTutor;
+package Uz.lab.mavenTutor.exercise;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
