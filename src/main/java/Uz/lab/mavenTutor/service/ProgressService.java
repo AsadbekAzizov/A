@@ -9,6 +9,10 @@ public interface ProgressService {
     public SendMessage getMessage(Update update);
     public ArrayList<SendMessage> count();
     public SendMessage sayHello(Update update);
-    public SendMessage createTextMessage(String text,String chatId);
 
+    SendMessage RandomName(String chatId);
+
+    public SendMessage createTextMessage(String text, String chatId);
+    public SendMessage countToTen(String chatId);
+    public SendMessage Random(String chatId);
 }

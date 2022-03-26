@@ -15,7 +15,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 @RestController
 public class WebhookControler {
     ProgressService progressService = new ProgressServiceImpl();
-    String token = "705956492:AAHLviT5Q686u1v3y1jujdGqa2Qu_s9oW8M";
+    String token = "5291972137:AAF7JLY3eqwci8r8aVmzGoGE2TiRQ8AK-Gw";
 
     @PostMapping
     public void WaitTelegramBotRequest(@RequestBody Update update) {
