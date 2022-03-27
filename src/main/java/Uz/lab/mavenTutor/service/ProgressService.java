@@ -4,9 +4,10 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface ProgressService {
-    public SendMessage getMessage(Update update);
+    public List<SendMessage> getMessage(Update update);
     public ArrayList<SendMessage> count();
     public SendMessage sayHello(Update update);
 

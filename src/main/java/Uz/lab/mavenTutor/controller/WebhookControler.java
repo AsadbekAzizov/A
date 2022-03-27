@@ -12,15 +12,20 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 @RestController
 public class WebhookControler {
     ProgressService progressService = new ProgressServiceImpl();
-    String token = "5291972137:AAF7JLY3eqwci8r8aVmzGoGE2TiRQ8AK-Gw";
+    String token = "5174862871:AAHtqc4YwRx1QHAGSAZ1m9CguRgbp_aunG0";
 
     @PostMapping
     public void WaitTelegramBotRequest(@RequestBody Update update) {
-        SendMessage message = progressService.getMessage(update);
-        System.out.println(execute(message));
+       List<SendMessage> message = progressService.getMessage(update);
+       message.forEach(sendMessage -> execute(sendMessage));
+
     }
 
     public String execute(BotApiMethod<?> message) {
