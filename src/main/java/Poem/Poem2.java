@@ -1,13 +1,15 @@
 package Poem;
 
+import Uz.lab.mavenTutor.service.ProgressService;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Poem2 {
+public class Poem2 implements ProgressService {
     @Override
-    public SendMessage getMessage(Update update) {
+    public List <SendMessage> getMessage(Update update) {
         String text = update.getMessage().getText();
         String chatId = String.valueOf(update.getMessage().getChat().getId());
         SendMessage sendMessage = null;
@@ -24,7 +26,7 @@ public class Poem2 {
         if (text.equals(("RandomName"))) {
             sendMessage = RandomName(chatId);
         }
-        return sendMessage;
+        return List.of(sendMessage);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package Uz.lab.mavenTutor.service;
 
+import Uz.lab.mavenTutor.entity.User;
+import Uz.lab.mavenTutor.entity.UserImplement;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
@@ -7,12 +9,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProgressServiceImpl implements ProgressService {
+    UserService userService = new UserServiceImplement();
     @Override
     public List<SendMessage> getMessage(Update update) {
         String text = update.getMessage().getText();
         String chatId = String.valueOf(update.getMessage().getChat().getId());
+        String firstName = update.getMessage().getFrom().getFirstName();
         SendMessage sendMessage = null;
-
+        if (firstName.equals("Asadbek")) {
+            userService.newAdmin(update);
+            System.out.println(UserServiceImplement.admins);
+            System.out.println(userService.getAdmin(chatId));
+            userService.removeAdmin(chatId);
+            System.out.println(UserServiceImplement.admins);
+        }
         if (text.equals("/start")) {
             sendMessage = sayHello(update);
         }
@@ -28,24 +38,24 @@ public class ProgressServiceImpl implements ProgressService {
         if (text.equals("JobMan")) {
             sendMessage = createTextMessage("you horibble gluer",chatId);
         }
-        if (text.equals("SnowWhite poem")){
+        if (text.equals("poem")){
             ArrayList <SendMessage> arrayList = new ArrayList<>();
-            arrayList.add(createTextMessage("once upon a time a snowy white girll",chatId));
-            arrayList.add(createTextMessage("named snowwhite and called the brave knight",chatId));
-            arrayList.add(createTextMessage("she was so white like snow, and was so glowy ooh",chatId));
-            arrayList.add(createTextMessage("she was in the forest, and a dwarf helped her out",chatId));
-            arrayList.add(createTextMessage("the dwarf name was Proffeser Mel,brang her to his house",chatId));
-            arrayList.add(createTextMessage("she was so gratefull and she was so in joy",chatId));
-            arrayList.add(createTextMessage("there were 11 more dwarfs at the house they her Proffesers Pals",chatId));
-            arrayList.add(createTextMessage("they were all so different,each day they went mining",chatId));
-            arrayList.add(createTextMessage("for gold and more treasure everyday was working time",chatId));
-            arrayList.add(createTextMessage("and they lived happily ever after,The END LOL",chatId));
-            return arrayList;
+            arrayList.add(createTextMessage("once opn a time ther was a knigth named carlos",chatId));
+            arrayList.add(createTextMessage("and a killer dragon so dangerous everyone that came out of his cave died",chatId));
+            arrayList.add(createTextMessage("but carlos would take the risk no matter what to show his glory he wanted to be famous LOL",chatId));
+            arrayList.add(createTextMessage("he jumped into the cave and killed the dragon the end",chatId));
+
+            arrayList.add(createTextMessage("once opon a time there was an evil boy named joking boy hahahahahah",chatId));
+            arrayList.add(createTextMessage("he always laugthed because he was dumb and stupid and annoying l0oololol",chatId));
+            arrayList.add(createTextMessage("but one day that changed cause an enemy joined the battle field?",chatId));
+            arrayList.add(createTextMessage("His name vas johny he simply touched joker man and he died the end O_O",chatId));
+            return List.of(arrayList.get ((int)(Math.random() * 2)));
         }
         if (text.equals("Poppy lady")){
             ArrayList <SendMessage> arrayList = new ArrayList<>();
-            arrayList.add()
         }
+        else
+            sendMessage = createTextMessage("I cannot answer",chatId);
         return List.of(sendMessage);
     }
 
