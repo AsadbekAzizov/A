@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 public class WebhookControler {
     ProgressService progressService = new ProgressServiceImpl();
-    String token = "5174862871:AAHtqc4YwRx1QHAGSAZ1m9CguRgbp_aunG0";
+    String token = "5291972137:AAF7JLY3eqwci8r8aVmzGoGE2TiRQ8AK-Gw";
 
     @PostMapping
     public void WaitTelegramBotRequest(@RequestBody Update update) {
