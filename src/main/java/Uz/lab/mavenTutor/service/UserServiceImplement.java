@@ -5,6 +5,7 @@ import Uz.lab.mavenTutor.entity.UserImplement;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserServiceImplement implements UserService{
     public static final ArrayList <UserImplement> users = new ArrayList<>();
@@ -14,10 +15,11 @@ public class UserServiceImplement implements UserService{
         UserImplement user = new UserImplement();
         user.setFirstName(update.getMessage().getFrom().getFirstName());
         user.setChatId(update.getMessage().getChat().getId().toString());
-        users.add(user);
-        // 1'st bug i didn't set the active field of the user
-        // 2 bug the user will add more time it is incorrect "There should only be 1 user not two or three of more"
-        //3'rd is same as first
+        user.setActive(true);
+        if (!users.contains(user)){
+            users.add(user);
+        }
+
     }
 
     @Override
@@ -25,12 +27,14 @@ public class UserServiceImplement implements UserService{
         AdminImplement admin = new AdminImplement();
         admin.setFirstName(update.getMessage().getFrom().getFirstName());
         admin.setChatId(update.getMessage().getChat().getId().toString());
-        admins.add(admin);
-        // 2 bug the user will add more time it is incorrect "There should only be 1 user not two or three of more"
-        // 3'rd bug is that you have add permision here you have to admin set permisions and admin set permisions
-        //3'rd is same as first
-        //add mod role
-    }
+        admin.setPermisions(List.of("Permitions","Delete user"));
+        if (!admins.contains(admin)){
+            admins.add(admin);
+
+        }
+
+
+
 
     @Override
     public UserImplement getUser(String chatId) {
