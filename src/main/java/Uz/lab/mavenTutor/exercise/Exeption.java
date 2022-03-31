@@ -1,5 +1,7 @@
 package Uz.lab.mavenTutor.exercise;
 
+import java.util.ArrayList;
+
 public class Exeption {
     public static void main(String[] args) {
         String name = getName(true);
@@ -20,6 +22,16 @@ public class Exeption {
         } else {
             throw new Booba("Delete Booba");
         }
+
+
+
+        } public static void Sofie(){
+        ArrayList <String> Sofie = new ArrayList<>();
+        Sofie.add("Sofi");
+        Sofie.add("Sof");
+        Sofie.add("Sofie");
+        Sofie.add("Sofia");
+        Sofie.add("Sofia");
 
     }
 }

@@ -96,5 +96,6 @@ public class ProgressServiceImpl implements ProgressService {
         sendMessage.setText(text);
         sendMessage.setChatId(chatId);
         return sendMessage;
+
     }
 }
